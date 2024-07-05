@@ -1,0 +1,190 @@
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+button.filters {
+  background-image: url('../img/filters.png');
+  background-size: cover;
+  background-position: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  background-color: transparent; /* Прозорий фон */
+  transition: background-color 0.3s; /* Плавна анімація зміни кольору фону */
+  border: 2332px;
+}
+
+.text-end {
+  margin-left: 30%;
+}
+
+button.filters:hover {
+  background-color: #000000; /* Новий колір фону при наведенні */
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Забезпечує, щоб сторінка була мінімальної висоти вікна браузера */
+  position: relative;
+}
+
+button.buu {
+  background-image: url('../img/lupa.png');
+  background-size: cover;
+  background-position: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  background-color: transparent; /* Прозорий фон */
+  transition: background-color 0.3s; /* Плавна анімація зміни кольору фону */
+  border: 2332px;
+}
+
+button.buu:hover {
+  background-color: #ccc; /* Новий колір фону при наведенні */
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  margin-top: 5%; /* Змінено з "position: relative;" на "margin-top: auto;" */
+  margin-top: auto;
+}
+
+/* Загальні стилі */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Профіль */
+.profile-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container h1 {
+  margin-bottom: 30px;
+}
+
+.profile-table {
+  margin-bottom: 30px;
+}
+
+.profile-table th {
+  width: 30%;
+  background-color: #f1f1f1;
+  text-align: left;
+}
+
+.profile-table td {
+  width: 70%;
+}
+
+/* Редагування профілю */
+.edit-profile-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-profile-container h1 {
+  margin-bottom: 30px;
+}
+
+.edit-profile-container .form-group {
+  margin-bottom: 20px;
+}
+
+.edit-profile-container label {
+  font-weight: bold;
+}
+
+.edit-profile-container {
+  margin: 5px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin-left: 20%;
+}
+
+.nav-link {
+  font-size: 125%;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input,
+textarea {
+  padding: 5px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+}
+
+.container-fluid {
+  background-color: #333;
+  margin-top: 5%;
+  margin-top: auto;
+}
+
+.text-mued {
+  color: #dbdbdb;
+  font-size: 17px;
+}
+
+.text-white {
+  color: #c7c7c7;
+}
+
+footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-logo img {
+  max-width: 125px;
+  max-height: 75px;
+}
+
+.footer-text {
+  margin-bottom: 0;
+}
+
+.footer-link {
+  padding: 0;
+  margin-bottom: 0.5rem;
+}

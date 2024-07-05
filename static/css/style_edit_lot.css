@@ -1,0 +1,319 @@
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .form-container {
+    display: flex; /* Встановлює flex-контейнер */
+    justify-content: flex-start; /* Розташовує елементи на початку контейнера */
+    align-items: flex-start; /* Вирівнює елементи по верхньому краю */
+    gap: 20px; /* Додає відступ між елементами */
+}
+
+button.filters {
+  background-image: url('../img/filters.png');
+  background-size: cover;
+  background-position: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  background-color: transparent; /* Прозорий фон */
+  transition: background-color 0.3s; /* Плавна анімація зміни кольору фону */
+  border: 2332px;
+}
+
+.text-end{
+  margin-left: 30%;
+}
+
+button.filters:hover {
+  background-color: #000000; /* Новий колір фону при наведенні */
+}
+
+.form-fields {
+    flex: 1; /* Дозволяє елементу займати всю доступну ширину контейнера */
+    margin-right: 20px; /* Відступ справа для створення простору між формою і каруселлю */
+}
+
+.image-carousel {
+    flex: 0 0 600px; /* Фіксує ширину каруселі в 600 пікселів */
+    margin-left: 0; /* Відсутність відступу зліва */
+    margin-top: 20px; /* Додає відступ зверху для зміщення каруселі вниз */
+    align-self: flex-start; /* Вирівнює карусель по верхньому краю форми */
+}
+
+
+.btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Забезпечуємо, щоб кнопка була над іншим контентом */
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    color: red;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+
+.btn-close:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Забезпечує, щоб сторінка була мінімальної висоти вікна браузера */
+    position: relative;
+  }
+
+  button.buu {
+    background-image: url('../img/lupa.png');
+    background-size: cover;
+    background-position: center;
+    width: 38px;
+    height: 38px;
+    border: none;
+    background-color: transparent; /* Прозорий фон */
+    transition: background-color 0.3s; /* Плавна анімація зміни кольору фону */
+    border: 2332px;
+  }
+  
+  button.buu:hover {
+    background-color: #ccc; /* Новий колір фону при наведенні */
+  }
+  
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: auto;
+    bottom: 0;
+    margin-top: 5%; /* Змінено з "position: relative;" на "margin-top: auto;" */
+    margin-top: auto;
+  }
+  
+  /* Загальні стилі */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Профіль */
+  .profile-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-container h1 {
+    margin-bottom: 30px;
+  }
+  
+  .profile-table {
+    margin-bottom: 30px;
+  }
+  
+  .profile-table th {
+    width: 30%;
+    background-color: #f1f1f1;
+    text-align: left;
+  }
+  
+  .profile-table td {
+    width: 70%;
+  }
+  
+  /* Редагування профілю */
+  .edit-profile-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-profile-container h1 {
+    margin-bottom: 30px;
+  }
+  
+  .edit-profile-container .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .edit-profile-container label {
+    font-weight: bold;
+  }
+  
+  .edit-profile-container {
+    margin: 5px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-left: 20%;
+  }
+  
+  .nav-link {
+    font-size: 125%;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input,
+  textarea {
+    padding: 5px;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 5px 10px;
+  }
+  
+  .container-fluid {
+    background-color: #333;
+    margin-top: 5%;
+    margin-top: auto;
+  }
+  
+  .text-mued {
+    color: #dbdbdb;
+    font-size: 17px;
+  }
+  
+  .text-white {
+    color: #c7c7c7;
+  }
+
+  footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-logo img {
+    max-width: 125px;
+    max-height: 75px;
+  }
+
+  .footer-text {
+    margin-bottom: 0;
+  }
+
+  .footer-link {
+    padding: 0;
+    margin-bottom: 0.5rem;
+  }
+
+/* Основні стилі для форми редагування лоту */
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.form-fields {
+  flex: 1;
+}
+
+.form-fields label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-fields input[type="text"],
+.form-fields input[type="number"],
+.form-fields textarea,
+.form-fields select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-fields textarea {
+  height: 150px;
+}
+
+.form-fields select {
+  appearance: none;
+  padding: 8px;
+  border-radius: 4px;
+  background: #fff;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+#lot_description {
+  width: 150%; /* Або задайте конкретну ширину, наприклад, 400px */
+  height: 100px; /* Налаштуйте висоту, як вам потрібно */
+}
+
+.form-fields button[type="submit"] {
+  background-color: #3578dc; /* червона кнопка */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.form-fields button[type="submit"]:hover {
+  background-color: #2323c8; /* темно-червона кнопка при наведенні */
+}
+
+.image-carousel {
+  flex: 0 0 600px;
+  margin-top: 20px;
+  margin-left: 300px; /* Переміщення каруселі на 300px вправо */
+}
+
+.carousel-inner img {
+  max-width: 100%;
+  height: auto;
+}
+
+.gfdasd {
+
+  text-align: center;
+}
+
+.file-input-wrapper {
+  margin-bottom: 10px;
+}
+
+.file-input-wrapper:last-child {
+  margin-bottom: 0;
+}

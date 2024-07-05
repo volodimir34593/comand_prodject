@@ -1,0 +1,122 @@
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .text-end{
+    margin-left: 15%;
+  }
+  
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Забезпечує, щоб сторінка була мінімальної висоти вікна браузера */
+    position: relative;
+  }
+  
+  .nav-link {
+    font-size: 125%; /* збільшуємо розмір тексту до 20px */
+  }
+  
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-top: 5%; /* Змінено з "position: relative;" на "margin-top: auto;" */
+    margin-top: auto;
+  }
+  
+  .text-end {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-left: 20%; /* Додає відступ між навігацією і формою пошуку */
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input,
+  textarea {
+    padding: 5px;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 5px 10px;
+  }
+
+  .searchForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%; /* Ширина форми пошуку */
+    text-align: center;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.searchForms {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.searchForm #searchInput {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    transition: transform 0.3s ease;
+}
+
+.searchForm #searchInput:focus {
+    outline: none;
+    transform: translateY(-50px);
+}
+
+.searchForm .input-searchForm {
+    position: absolute;
+    top: 50%;
+    right: 0px;
+    transform: translateY(-50%);
+}
+
+button.buu {
+    background-image: url('../img/lupa.png');
+    background-size: cover;
+    background-position: center;
+    width: 38px;
+    height: 38px;
+    border: none;
+    background-color: transparent; /* Прозорий фон */
+    transition: background-color 0.3s;
+}
+
+button.buu:hover {
+    background-color: #ccc; /* Новий колір фону при наведенні */
+}

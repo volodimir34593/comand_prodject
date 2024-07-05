@@ -1,0 +1,219 @@
+/* Загальні стилі, що залишаються без змін */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .text-end {
+    margin-left: 15%;
+  }
+  
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  .nav-link {
+    font-size: 125%;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  .text-end {
+    margin-left: 30%;
+  }
+  
+  input,
+  textarea {
+    padding: 5px;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 5px 10px;
+  }
+  
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 5%;
+    margin-left: 19%;
+    margin-right: calc(50vw - 800px);
+  }
+  
+  .centered-title {
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    position: relative;
+    width: 13%;
+  }
+  
+  .grid-item img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .grid-item a {
+    font-size: 1.2em;
+    color: #333;
+    text-decoration: none;
+    margin: 10px 0;
+    display: inline-block;
+  }
+  
+  .grid-item p {
+    margin-top: auto;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .grid-item .top-sale {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+  
+  .grid-item .discount {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9em;
+  }
+  
+  .grid-item .new-price {
+    color: red;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  /* Нові стилі для розміщення елементів зліва */
+  .sidebar {
+    position: absolute;
+    left: 0px;
+    width: 100px;
+  }
+  
+  .sidebar select,
+  .sidebar input {
+    display: block;
+    width: 1000%;
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  
+  /* Переміщуємо кнопку пошуку на місце */
+  .eeee {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #979797;
+    text-align: center;
+  }
+  
+  .searchForms {
+    display: flex;
+    align-items: center; /* Вирівнювання по вертикалі */
+  }
+  
+  .searchForm {
+    position: absolute;
+    top: 175px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%; /* Ширина форми пошуку */
+  }
+  
+  .form-control-dark {
+    flex: 1; /* Займає доступний простір */
+    margin-right: -40px; /* Відстань між полем вводу та кнопкою */
+    background-color: #ffffff !important; /* Змінено на білий колір */
+}
+  
+  button.buu {
+    background-image: url('../img/lupa.png');
+    background-size: cover;
+    background-position: center;
+    width: 38px;
+    height: 38px;
+    border: none;
+    background-color: transparent; /* Прозорий фон */
+    transition: background-color 0.3s;
+  
+}
+  
+.container-fluid {
+  background-color: #333;
+  margin-top: 30%;
+}
+
+.text-mued {
+  color: #dbdbdb;
+  font-size: 17px;
+}
+
+.text-white {
+  color: #c7c7c7;
+}
+
+footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-logo img {
+  max-width: 125px;
+  max-height: 75px;
+}
+
+.footer-text {
+  margin-bottom: 0;
+}
+
+.footer-link {
+  padding: 0;
+  margin-bottom: 0.5rem;
+}

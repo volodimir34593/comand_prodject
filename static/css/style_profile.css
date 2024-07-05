@@ -1,0 +1,192 @@
+/* Загальні стилі */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 0 10%;
+}
+
+/* Стилі для секції аватара */
+.avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Вирівнювання по центру */
+  width: 35%; /* Ширина секції аватара */
+}
+
+.profile-avatar {
+  width: 350px; /* Ширина аватара */
+  height: 350px; /* Висота аватара */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info {
+  font-size: 24px;
+  margin-top: 20px;
+  margin-left: 25%;
+  width: 100%; /* Забезпечує повну ширину секції */
+  text-align: left; /* Вирівнювання тексту зліва */
+}
+
+/* Стилі для секції кнопок */
+.button-section {
+  width: 35%; /* Збільшуємо ширину секції кнопок до 35% */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.button-section .btn {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+/* Стилі для кнопок */
+.edit_profile, .user_lots, .logout {
+  border-radius: 0% !important;
+  font-size: 24px !important;
+  margin-right: 38%;
+  background-color: rgb(234, 234, 234) !important;
+  color: #000000 !important; /* Колір тексту */
+  padding: 10px 20px !important; /* Відступи для кращого вигляду */
+  border-top: 2px solid #000000 !important; /* Верхня рамка */
+  border-bottom: 2px solid #000000 !important; /* Нижня рамка */
+  border-left: none !important; /* Ліва рамка невидима */
+  border-right: none !important; /* Права рамка невидима */
+  text-decoration: none !important; /* Прибрати підкреслення */
+  display: inline-block !important; /* Зробити елемент блоковим для відступів */
+}
+
+button.filters {
+  background-image: url('../img/filters.png');
+  background-size: cover;
+  background-position: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  background-color: transparent; /* Прозорий фон */
+  transition: background-color 0.3s; /* Плавна анімація зміни кольору фону */
+  border: 2332px;
+}
+
+.text-end {
+  margin-left: 30%;
+}
+
+button.filters:hover {
+  background-color: #000000; /* Новий колір фону при наведенні */
+}
+
+/* Інші стилі */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  padding: 20px;
+}
+
+.nav-link {
+  font-size: 125%;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  margin-top: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin-left: 20%;
+}
+
+label {
+  margin-top: 10px;
+}
+
+input,
+textarea {
+  padding: 5px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+}
+
+button.buu {
+  background-image: url('../img/lupa.png');
+  background-size: cover;
+  background-position: center;
+  width: 38px;
+  height: 38px;
+  border: none;
+  background-color: transparent;
+  transition: background-color 0.3s;
+  border: 2332px;
+}
+
+button.buu:hover {
+  background-color: #ccc;
+}
+
+.container-fluid {
+  background-color: #333;
+  margin-top: 5%;
+  margin-top: auto;
+}
+
+.text-mued {
+  color: #dbdbdb;
+  font-size: 17px;
+}
+
+.text-white {
+  color: #c7c7c7;
+}
+
+footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-logo img {
+  max-width: 125px;
+  max-height: 75px;
+}
+
+.footer-text {
+  margin-bottom: 0;
+}
+
+.footer-link {
+  padding: 0;
+  margin-bottom: 0.5rem;
+}

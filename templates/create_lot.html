@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_create_lot.css') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    .file-input-wrapper {
+        margin-bottom: 10px;
+    }
+
+    .file-input-wrapper:last-child {
+        margin-bottom: 0;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 class="centered-title">Створити лот</h1>
+<form method="post" enctype="multipart/form-data" id="lot_form">
+  <div class="form-container">
+    <div class="form-fields">
+      <label for="lot_name">Назва лоту</label>
+      <input type="text" id="lot_name" name="lot_name" required>
+      
+      <label for="lot_description">Опис лоту</label>
+      <textarea id="lot_description" name="lot_description" required></textarea>
+      
+      <label for="lot_start_price">Стартова ціна</label>
+      <input type="number" id="lot_start_price" name="lot_start_price" step="0.01" required>
+      
+      <label for="lot_times">Тривалість (дні)</label>
+      <select id="lot_times" name="lot_times" required>
+        <option value="10">10 днів</option>
+        <option value="15">15 днів</option>
+        <option value="20">20 днів</option>
+        <option value="30">30 днів</option>
+        <option value="60">2 місяці</option>
+        <option value="90">3 місяці</option>
+        <option value="120">4 місяці</option>
+        <option value="150">5 місяці</option>
+        <option value="180">6 місяців</option>
+      </select>
+      
+      <label for="category_id">Категорії</label>
+      <select id="category_id" name="category_id" required>
+        <option value="Антикваріат і Колекціонування">Антикваріат і Колекціонування</option>
+        <option value="Ноутбуки, ПК та планшети">Ноутбуки, ПК та планшети</option>
+        <option value="Електроніка та Техніка">Електроніка та Техніка</option>
+        <option value="Мода краса">Мода краса</option>
+        <option value="Дитячий світ">Дитячий світ</option>
+        <option value="Дім, дозвілля">Дім, дозвілля</option>
+        <option value="Спорт, Здоров'я">Спорт, Здоров'я</option>
+        <option value="Авто, мото">Авто, мото</option>
+        <option value="Інші товари">Інші товари</option>
+      </select>
+      
+      <label for="lot_images">Фотографії лоту</label>
+      <div id="file_inputs">
+        <div class="file-input-wrapper">
+          <input type="file" name="lot_images[]" accept="image/*" onchange="showPreview(this.files); addFileInput();"><br>
+        </div>
+      </div>
+      <button type="submit">Створити лот</button>
+    </div>
+    
+    <div class="image-carousel">
+      <div id="carousel-preview" class="carousel slide" data-ride="carousel" style="width: 600px; height: 600px;" data-interval="false" data-wrap="false">
+        <div class="carousel-inner">
+          <!-- Зображення будуть додаватися сюди динамічно -->
+        </div>
+        <a class="carousel-control-prev" href="#carousel-preview" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Попереднє</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-preview" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Наступне</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</form>
+
+<script>
+  function addFileInput() {
+  var fileInputsContainer = document.getElementById("file_inputs");
+  var inputCount = fileInputsContainer.getElementsByTagName("input").length;
+  
+  if (inputCount < 5) {  // Limit to 5 images, for example
+    var wrapper = document.createElement("div");
+    wrapper.className = "file-input-wrapper";
+    
+    var fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.name = "lot_images[]";
+    fileInput.accept = "image/*";
+    fileInput.onchange = function() { showPreview(this.files); };
+    
+    wrapper.appendChild(fileInput);
+    fileInputsContainer.appendChild(wrapper);
+  }
+}
+
+function showPreview(files) {
+  var carouselInner = document.querySelector('#carousel-preview .carousel-inner');
+  carouselInner.innerHTML = '';  // Clear existing previews
+
+  for (var i = 0; i < files.length; i++) {
+    var file = files[i];
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      var div = document.createElement('div');
+      div.className = 'carousel-item' + (carouselInner.children.length === 0 ? ' active' : '');
+      
+      var img = document.createElement('img');
+      img.className = 'd-block w-100';
+      img.src = e.target.result;
+      img.style.objectFit = 'contain';
+      img.style.maxHeight = '600px';
+      
+      div.appendChild(img);
+      carouselInner.appendChild(div);
+    }
+
+    reader.readAsDataURL(file);
+  }
+}
+
+// Remove the existing document.getElementById("lot_form").addEventListener("change", ...) code
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='js/edit_lot.js') }}"></script>
+{% endblock %}

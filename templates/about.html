@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_about.css') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% endblock %}
+
+{% block content %}
+<h1 class="text-center">Про нас</h1>
+
+<div class="row justify-content-center">
+  <div class="col-lg-4 text-center">
+    <img src="{{ url_for('static', filename='img/denis.jpg') }}" style="max-width: 140px; max-height: 140px;" class="bd-placeholder-img rounded-circle" alt="Denis">
+    <h2 class="fw-normal">Городничук Денис</h2>
+    <p style="font-size: 18px;">Backend-розробник Денис створив логіку для цього сайту, забезпечуючи надійне і ефективне функціонування всіх його компонентів. Його робота включає розробку та інтеграцію серверної частини, що дозволяє сайту працювати безперебійно та забезпечувати користувачам </p>
+  </div><!-- /.col-lg-4 -->
+  <div class="col-lg-4 text-center">
+    <img src="{{ url_for('static', filename='img/evgen.jpg') }}" style="max-width: 140px; max-height: 140px;" class="bd-placeholder-img rounded-circle" alt="Evgen">
+    <h2 class="fw-normal">Гребінець Євген</h2>
+    <p style="font-size: 18px;">Дизайнер Євген створив вражаючий дизайн для цього сайту, який поєднує естетику із зручністю використання. Його робота включає сучасні елементи дизайну, що сприяють яскравому візуальному враженню та забезпечують зручність навігації для користувачів.</p>
+  </div><!-- /.col-lg-4 -->
+  <div class="col-lg-4 text-center">
+    <img src="{{ url_for('static', filename='img/vova.jpg') }}" style="max-width: 140px; max-height: 140px;" class="bd-placeholder-img rounded-circle" alt="Vova">
+    <h2 class="fw-normal">Малеш Вова</h2>
+    <p style="font-size: 18px;">Team lead Вова керував проектом так, щоб сайт працював на високому рівні ефективності і забезпечував зручність використання для кожного користувача. Його керівництво допомогло збалансувати роботу всіх команд і забезпечити високу якість функціонування сайту.</p>
+  </div><!-- /.col-lg-4 -->
+</div>
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container edit-profile-container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="text-center">Редагувати профіль</h1>
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="avatar">Аватар</label>
+                    {% if user.avatar %}
+                        <div>
+                            <img src="data:image/png;base64,{{ user.avatar }}" alt="Avatar" style="max-width: 150px; max-height: 150px;">
+                        </div>
+                    {% else %}
+                        <div>
+                            <img src="{{ url_for('static', filename='default_avatar.png') }}" alt="Default Avatar" style="max-width: 150px; max-height: 150px;">
+                        </div>
+                    {% endif %}
+                    <input type="file" class="form-control-file" id="avatar" name="avatar">
+                    <small class="form-text text-muted">Оберіть зображення для аватарки.</small>
+                </div>                
+                <div class="form-group">
+                    <label for="first_name">Ім'я</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" value="{{ user.first_name }}">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Прізвище</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" value="{{ user.last_name }}">
+                </div>
+                <div class="form-group">
+                    <label for="country_code">Країна</label>
+                    <select class="form-control" id="country_code" name="country_code" required>
+                        <option value="+1">США (+1)</option>
+                        <option value="+44">Великобританія (+44)</option>
+                        <option value="+380">Україна (+380)</option>
+                        <!-- Додайте більше країн за потреби -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="phone_number">Номер телефону</label>
+                    <input type="text" class="form-control" id="phone_number" name="phone_number" value="{{ user.phone_number }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Зберегти зміни</button>
+                    <a href="{{ url_for('profile') }}" class="btn btn-secondary">Скасувати</a>
+                </div>
+            </form>
+            <div class="text-center mt-3">
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalSheet">Видалити акаунт</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальне вікно підтвердження видалення акаунту -->
+<div class="modal fade" id="modalSheet" tabindex="-1" role="dialog" aria-labelledby="modalSheetLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header border-bottom-0">
+        <h1 class="modal-title fs-5">Підтвердження видалення акаунту</h1>
+      </div>
+      <div class="modal-body py-0">
+        Ви точно це хочете зробити?
+      </div>
+      <div class="modal-footer flex-column align-items-stretch w-100 gap-2 pb-3 border-top-0">
+        <button type="button" class="btn btn-lg btn-danger" onclick="document.getElementById('deleteForm').submit();">Видалити</button>
+        <button type="button" class="btn btn-lg btn-secondary" data-bs-dismiss="modal">Скасувати</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='js/edit_profile.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Аукціонний сайт</title>
+  {% block styles %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% endblock %}
+  <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+</head>
+<body>
+  <header class="p-3 bg-dark text-white custom-header">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none logo-link">
+          <img src="{{ url_for('static', filename='img/logo.png') }}" style="max-width: 100px; max-height: 50px;">
+        </a>
+        
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="{{ url_for('index') }}" class="nav-link px-2 text-secondary">Головна</a></li>
+          <li><a href="{{ url_for('create_lot') }}" class="nav-link px-2 text-white">Створити лот</a></li>
+          <li><a href="{{ url_for('about') }}" class="nav-link px-2 text-white">Про нас</a></li>
+          <li><a href="{{ url_for('search') }}" class="nav-link px-2 text-white">Пошук</a></li>
+          <li><a href="{{ url_for('forum') }}" class="nav-link px-2 text-white">Форум</a></li>
+          <li><a href="https://t.me/Technical_support_ByNexus_bot" class="nav-link px-2 text-white">Допомога</a></li>
+        </ul>
+        <div class="text-end">
+          {% if session.logged_in %}
+            <a href="{{ url_for('profile') }}" class="btn btn-outline-light me-2">Мій профіль</a>
+          {% else %}
+            <a href="{{ url_for('login') }}">
+              <button type="button" class="btn btn-outline-light me-2">Увійти</button>
+            </a>
+            <a href="{{ url_for('register') }}">
+              <button type="button" class="btn btn-warning">Зареєструватися</button>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <div class="container-fluid">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 border-top">
+      <div class="col mb-3 infa offset-md-2">
+        <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none footer-logo">
+          <img src="{{ url_for('static', filename='img/logo.png') }}">
+        </a>
+        <p class="text-mued footer-text">© 2024 ByeNexus <a href="">«ByeNexus»</a>. ТОВ «BYENEXUS УКРАЇНА» / <span>Джентельменський табір</span>. <br>Всi&nbsp;права&nbsp;захищені. Для офіційних звернень: <a href="mailto:http://127.0.0.1:5000/">http://127.0.0.1:5000/</a></p>
+      </div>
+  
+      <div class="col mb-3 nex"></div>
+  
+      <div class="col mb-3 text-white">
+        <h5>Профіль</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2 footer-link"><a href="{{ url_for('profile') }}" class="nav-link p-0 text-white">Мій профіль</a></li>
+          <li class="nav-item mb-2 footer-link"><a href="{{ url_for('edit_profile') }}" class="nav-link p-0 text-white">Редагувати профіль</a></li>
+          <li class="nav-item mb-2 footer-link"><a href="{{ url_for('user_lots') }}" class="nav-link p-0 text-white">Переглянути мої лоти</a></li>
+          <li class="nav-item mb-2 footer-link"><a href="{{ url_for('logout') }}" class="nav-link p-0 text-white" id="logout-btn">Вийти</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+<script>
+  document.getElementById('logout-btn').addEventListener('click', function(event) {
+      event.preventDefault();
+      var confirmation = confirm("Ви впевнені в своїй дії?");
+      if (confirmation) {
+          window.location.href = this.href;
+      }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_lots.css') }}">
+<style>
+/* Ваш внутрішній CSS тут */
+.custom-grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.custom-grid-item {
+  display: flex;
+  width: 100%;
+}
+.custom-grid-item img {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+{% if lots %}
+<button onclick="window.location.href='{{ url_for('index') }}'" class="buton"></button>
+
+<div class="custom-grid-container">
+  {% for lot in lots %}
+    {% if lot.image_urls %}
+      <div id="carousel-{{ lot.id }}" class="carousel slide mr-3" data-ride="carousel" style="width: 600px; height: 600px;" data-interval="false" data-wrap="false">
+        <div class="carousel-inner">
+          {% for image_url in lot.image_urls %}
+            <div class="carousel-item {% if loop.first %}active{% endif %}">
+              <img src="{{ image_url }}" class="d-block w-100" alt="{{ lot.name }}" style="object-fit: contain; height: 600px;" data-toggle="modal" data-target="#imageModal" data-image-url="{{ image_url }}">
+            </div>
+          {% endfor %}
+        </div>
+        <!-- Контролі -->
+        <a class="carousel-control-prev" href="#carousel-{{ lot.id }}" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Попереднє</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-{{ lot.id }}" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Наступне</span>
+        </a>
+      </div>
+    {% endif %}
+
+    <!-- Інформація праворуч -->
+    <div class="lot-info" >
+      <a href="{{ url_for('item_page', item_id=lot.id) }}">{{ lot.name }}</a>
+      <p>{{ lot.description }}</p>
+      <p>Категорія: {{ lot.category_id }}</p>
+      <p>Стартова ціна: ${{ lot.start_price }}</p>
+      <p>Поточна ціна: <span id="current_price_{{ lot.id }}">${{ lot.current_price }}</span></p>
+      <p>Власник: <span id="owner">{{ users[lot.owner]['first_name'] }} {{ users[lot.owner]['last_name'] }}</span></p>
+      <p>Номер телефону власника лота: {{ users[lot.owner]['phone_number'] }}</p>
+      <p>Email власника: {{ users[lot.owner]['email'] }}</p>
+      <p>Тривалість: {{ lot.times }} днів</p>
+      <p>Час до закінчення: <span data-end-time="{{ lot.end_date }}"></span></p>
+      <form id="bid_form_{{ lot.id }}" action="{{ url_for('place_bid') }}" method="post">
+  <div class="form-group">
+      <label for="bid_{{ lot.id }}">Ваша ставка:</label>
+      <input type="number" class="form-control" id="bid_{{ lot.id }}" name="bid_amount" min="{{ lot.current_price }}" required>
+  </div>
+  <input type="hidden" name="item_id" value="{{ lot.id }}">
+  <input type="hidden" name="end_time" value="{{ lot.end_date }}">
+  {% if session.get('username') %}
+      <button type="submit" class="btn btn-success">Змінити ставку</button>
+  {% else %}
+      <p>Ви повинні увійти, щоб ставити ставки.</p>
+  {% endif %}
+</form>
+
+      {% if session.get('username') == lot.owner %}
+        <form method="GET" action="{{ url_for('edit_lot', lot_id=lot['id']) }}" style="display:inline;" enctype="multipart/form-data">
+          <button type="submit">Редагувати</button>
+        </form>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+<!-- Модальне вікно для зображень -->
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabel">Зображення</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" class="img-fluid" alt="Зображення">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% else %}
+<p>Немає активних лотів.</p>
+{% endif %}
+
+<script src="{{ url_for('static', filename='js/lots_script.js') }}"></script>
+{% endblock %}

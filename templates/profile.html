@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_profile.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="avatar-section">
+        {% if user.avatar %}
+            <img src="data:image/png;base64,{{ user.avatar }}" alt="Avatar" class="profile-avatar">
+        {% else %}
+            <img src="{{ url_for('static', filename='default_avatar.png') }}" alt="Default Avatar" class="profile-avatar">
+        {% endif %}
+        <div class="user-info">
+            <p>{{ user.first_name }}</p>
+            <p>{{ user.last_name }}</p>
+            <p>{{ user.phone_number }}</p>
+            <p>{{ user.email }}</p>
+        </div>
+    </div>
+    <div class="button-section">
+        <a href="{{ url_for('edit_profile') }}" class="btn edit_profile">Редагувати профіль</a>
+        <a href="{{ url_for('user_lots') }}" class="btn user_lots">Переглянути мої лоти</a>
+        <a href="{{ url_for('logout') }}" class="btn logout" id="logout-btn">Вийти</a>
+    </div>
+</div>
+
+<script>
+document.getElementById('logout-btn').addEventListener('click', function(event) {
+    event.preventDefault();
+    var confirmation = confirm("Ви впевнені в своїй дії?");
+    if (confirmation) {
+        window.location.href = this.href;
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_edit_lot.css') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+{% endblock %}
+
+{% block content %}
+
+<h1 class="gfdasd">Редагування лоту</h1>
+<form method="post" enctype="multipart/form-data" id="lot_form">
+    <div class="form-container">
+        <div class="form-fields">
+            <input type="hidden" name="lot_id" value="{{ lot.id }}">
+            <label for="lot_name">Назва лота:</label><br>
+            <input type="text" id="lot_name" name="lot_name" value="{{ lot.name }}"><br>
+            <label for="lot_description">Опис:</label><br>
+            <textarea id="lot_description" name="lot_description">{{ lot.description }}</textarea><br>
+            <label for="lot_start_price">Стартова ціна:</label><br>
+            {% if lot.current_price == lot.start_price %}
+                <input type="number" id="lot_start_price" name="lot_start_price" value="{{ lot.start_price }}"><br><br>
+            {% else %}
+                <p>На цей лот вже були ставки, стартову ціну змінити неможливо.</p>
+                <input type="hidden" id="lot_start_price" name="lot_start_price" value="{{ lot.start_price }}">
+            {% endif %}
+            
+            <label for="category_id">Категорії:</label>
+            <select id="category_id" name="category_id" required>
+                <option value="Антикваріат і Колекціонування" {% if lot.category == "Антикваріат і Колекціонування" %}selected{% endif %}>Антикваріат і Колекціонування</option>
+                <option value="Ноутбуки, ПК та планшети" {% if lot.category == "Ноутбуки, ПК та планшети" %}selected{% endif %}>Ноутбуки, ПК та планшети</option>
+                <option value="Електроніка та Техніка" {% if lot.category == "Електроніка та Техніка" %}selected{% endif %}>Електроніка та Техніка</option>
+                <option value="Мода краса" {% if lot.category == "Мода краса" %}selected{% endif %}>Мода краса</option>
+                <option value="Дитячий світ" {% if lot.category == "Дитячий світ" %}selected{% endif %}>Дитячий світ</option>
+                <option value="Дім, дозвілля" {% if lot.category == "Дім, дозвілля" %}selected{% endif %}>Дім, дозвілля</option>
+                <option value="Спорт, Здоров'я" {% if lot.category == "Спорт, Здоров'я" %}selected{% endif %}>Спорт, Здоров'я</option>
+                <option value="Авто, мото" {% if lot.category == "Авто, мото" %}selected{% endif %}>Авто, мото</option>
+                <option value="Інші товари" {% if lot.category == "Інші товари" %}selected{% endif %}>Інші товари</option>
+            </select><br>
+            
+            <label for="lot_images">Зображення:</label><br>
+            <div id="file_inputs">
+                <!-- Початкове файлове поле -->
+                <div class="file-input-wrapper">
+                    <input type="file" name="lot_images[]" accept="image/*" onchange="showPreview(this.files); addFileInput();"><br>
+                </div>
+            </div>
+            <button type="submit">Зберегти зміни</button>
+        </div>
+        <div class="image-carousel">
+            <div id="carousel-{{ lot.id }}" class="carousel slide" data-ride="carousel" style="width: 600px; height: 600px;" data-interval="false" data-wrap="false">
+                <div class="carousel-inner">
+                    {% for image_url in lot.image_urls %}
+                        <div class="carousel-item {% if loop.first %}active{% endif %}">
+                            <img src="{{ image_url }}" class="d-block w-100" alt="{{ lot.name }}" style="object-fit: contain; height: 600px;">
+                            <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Close" onclick="deleteImage('{{ image_url }}')" style="background: transparent; border: none; font-size: 2rem; color: red;">&times;</button>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- Контролі -->
+                <a class="carousel-control-prev" href="#carousel-{{ lot.id }}" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Попереднє</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-{{ lot.id }}" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Наступне</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</form>
+<form method="POST" action="{{ url_for('delete_images', lot_id=lot['id']) }}" style="text-align: center;">
+    <button type="submit" name="delete_images" style="background-color: #dc3545; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px;">Видалити всі зображення</button>
+</form><br>
+<form action="{{ url_for('delete_lot', item_id=lot.id) }}" method="post" id="delete_lot_form" style="display:inline; text-align: center;">
+    <button type="submit" style="background-color: #67000a; color: #fff; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px;">Видалити лот</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{{ url_for('static', filename='js/edit_lot.js') }}"></script>
+
+<script>
+    document.getElementById('delete_lot_form').addEventListener('submit', function(event) {
+        var confirmation = confirm("Ви точно хочете видалити цей лот?");
+        if (!confirmation) {
+            event.preventDefault();  // Скасування відправки форми лише при скасуванні підтвердження
+        }
+    });
+</script>
+
+{% endblock %}

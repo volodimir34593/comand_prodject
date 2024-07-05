@@ -1,0 +1,266 @@
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .text-end{
+    margin-left: 15%;
+  }
+  
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Забезпечує, щоб сторінка була мінімальної висоти вікна браузера */
+    position: relative;
+  }
+  
+  .nav-link {
+    font-size: 125%; /* збільшуємо розмір тексту до 20px */
+  }
+  
+  .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    margin-top: 5%; /* Змінено з "position: relative;" на "margin-top: auto;" */
+    margin-top: auto;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  .text-end{
+    margin-left: 30%;
+  }
+  
+  input,
+  textarea {
+    padding: 5px;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 5px 10px;
+  }
+  
+  .grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Відстань між елементами */
+    padding: 20px;
+    margin-top: 5%; /* Додаємо відступ зверху */
+  }
+  
+  .centered-title {
+    position: absolute;
+    top: 13%; /* Змістіть вниз на 25% від верхнього краю */
+    left: 50%; /* Змістіть праворуч на 50% від лівого краю */
+    transform: translate(-50%, -50%); /* Центрування по вертикалі та горизонталі */
+    text-align: center; /* Центрування тексту всередині елемента */
+  }
+  
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+    position: relative;
+    width: 220px; /* Ширина елемента */
+  }
+  
+  .grid-item img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Відстань між зображенням та назвою */
+  }
+  
+  .grid-item a {
+    font-size: 1.2em;
+    color: #333;
+    text-decoration: none;
+    margin: 10px 0; /* Відстань між назвою та ціною */
+    display: inline-block;
+  }
+  
+  .grid-item p {
+    margin-top: auto; /* Підняти ціну до низу */
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  .grid-item .top-sale {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: orange;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+  
+  .grid-item .discount {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9em;
+  }
+  
+  .grid-item .new-price {
+    color: red;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .searchForm {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%; /* Ширина форми пошуку */
+  }
+  
+  .eeee {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #979797;
+    text-align: center;
+  }
+  
+  .searchForms {
+    display: flex;
+    align-items: center; /* Вирівнювання по вертикалі */
+  }
+  
+  .searchForm {
+    position: absolute;
+    top: 19%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%; /* Ширина форми пошуку */
+  }
+  
+  .form-control-dark {
+    flex: 1; /* Займає доступний простір */
+    margin-right: -40px; /* Відстань між полем вводу та кнопкою */
+  }
+  
+  button.buu {
+    background-image: url('../img/lupa.png');
+    background-size: cover;
+    background-position: center;
+    width: 38px;
+    height: 38px;
+    border: none;
+    background-color: transparent; /* Прозорий фон */
+    transition: background-color 0.3s;
+  }
+  
+  button.buu:hover {
+    background-color: #ccc; /* Новий колір фону при наведенні */
+  }
+  
+  .container-fluid {
+    background-color: #333;
+    margin-top: 5%;
+    margin-top: auto;
+  }
+  
+  .text-mued {
+    color: #dbdbdb;
+    font-size: 17px;
+  }
+  
+  .text-white {
+    color: #c7c7c7;
+  }
+  
+  footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-logo img {
+    max-width: 125px;
+    max-height: 75px;
+  }
+  
+  .footer-text {
+    margin-bottom: 0;
+  }
+  
+  .footer-link {
+    padding: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Assuming you have a base.css or custom.css linked in your base.html */
+.topic-form {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.rers {
+    text-align: center;
+}

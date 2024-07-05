@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_topic.css') }}">
+{% endblock %}
+
+{% block content %}
+{% if topic %}
+  <div class="topic-container">
+    <div class="topic-title">
+      <h1>{{ topic['title'] }}</h1>
+    </div>
+    <p class="topic-content">{{ topic['content'] }}</p>
+    <p>Опубліковано {{ topic['user_id'] }} в {{ topic['date_posted'] }}</p>
+    
+    <div class="post-container">
+      <h2>Пости</h2>
+      {% for post in posts %}
+        <div class="post-content">
+          <p>{{ post['content'] }}</p>
+          <p>Опубліковано {{ post['user_id'] }} в {{ post['date_posted'] }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <div class="add-post-form">
+      <h3>Додайте публікацію</h3>
+      <form method="POST" action="{{ url_for('create_post_route', topic_id=topic['id']) }}">
+        <textarea name="content" required></textarea>
+        <br>
+        <input type="submit" value="Опублікувати">
+      </form>
+    </div>
+  </div>
+{% else %}
+  <p>Тема не знайдена.</p>
+{% endif %}
+{% endblock %}

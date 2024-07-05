@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search_results.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="sidebar">
+    <form id="filterForm" class="searchForm" role="search" action="{{ url_for('search') }}" method="get">
+        <select id="category_id" name="category_id">
+            <option value="">Всі категорії</option>
+            <option value="Антикваріат і Колекціонування">Антикваріат і Колекціонування</option>
+            <option value="Ноутбуки, ПК та планшети">Ноутбуки, ПК та планшети</option>
+            <option value="Електроніка та Техніка">Електроніка та Техніка</option>
+            <option value="Мода краса">Мода краса</option>
+            <option value="Дитячий світ">Дитячий світ</option>
+            <option value="Дім, дозвілля">Дім, дозвілля</option>
+            <option value="Спорт, Здоров'я">Спорт, Здоров'я</option>
+            <option value="Авто, мото">Авто, мото</option>
+            <option value="Інші товари">Інші товари</option>
+        </select>
+        <input id="minPrice" name="min_price" type="number" placeholder="Мін. ціна" min="0">
+        <input id="maxPrice" name="max_price" type="number" placeholder="Макс. ціна" min="0">
+    </form>
+</div>
+
+<form id="searchForm" class="searchForm" role="search" action="{{ url_for('search') }}" method="get">
+<div class="searchForms">
+  <input id="searchInput" name="query" type="search" class="form-control form-control-dark form-control" placeholder="Пошук..." aria-label="Пошук">
+  <div class="input-searchForm">
+    <button type="submit" class="buu"></button>
+  </div>
+</div>
+</form>
+<h1 class="centered-title">Список лотів</h1>
+{% if lots %}
+<div class="grid-container">
+  {% for lot in lots %}
+  <div class="grid-item">
+    {% if lot.image_urls %}
+    <img src="{{ lot.image_urls[0] }}" alt="{{ lot.name }}" width="200">
+    {% endif %}
+    <a href="{{ url_for('item_page', item_id=lot.id) }}">{{ lot.name }}</a>
+    <p>Стартова ціна: ${{ lot.start_price }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="eeee">
+  <p>Немає лотів за вашим запитом "{{ query }}"{% if category %} в категорії "{{ category }}"{% endif %}{% if min_price or max_price %} у ціновому діапазоні{% endif %}.</p>
+</div>
+{% endif %}
+
+<script src="{{ url_for('static', filename='js/searchform.js') }}"></script>
+{% endblock %}

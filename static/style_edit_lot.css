@@ -1,0 +1,117 @@
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Забезпечує, щоб сторінка була мінімальної висоти вікна браузера */
+    position: relative;
+  }
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: auto;
+    bottom: 0;
+  }
+  
+  /* Загальні стилі */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Профіль */
+  .profile-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-container h1 {
+    margin-bottom: 30px;
+  }
+  
+  .profile-table {
+    margin-bottom: 30px;
+  }
+  
+  .profile-table th {
+    width: 30%;
+    background-color: #f1f1f1;
+    text-align: left;
+  }
+  
+  .profile-table td {
+    width: 70%;
+  }
+  
+  /* Редагування профілю */
+  .edit-profile-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .edit-profile-container h1 {
+    margin-bottom: 30px;
+  }
+  
+  .edit-profile-container .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .edit-profile-container label {
+    font-weight: bold;
+  }
+  
+  .edit-profile-container {
+    margin: 5px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin-left: 20%;
+  }
+  
+  .nav-link {
+    font-size: 125%;
+  }
+  
+  label {
+    margin-top: 10px;
+  }
+  
+  input,
+  textarea {
+    padding: 5px;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 5px 10px;
+  }
+  

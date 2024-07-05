@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_create_topic.css') }}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="rers">Створити нову тему</h1>
+    <form method="POST" action="{{ url_for('create_topic') }}" class="topic-form">
+        <div class="form-group">
+            <label for="title">Назва:</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="content">Зміст:</label>
+            <textarea id="content" name="content" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Створити тему</button>
+    </form>
+{% endblock %}

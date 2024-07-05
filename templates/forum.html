@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_forum.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="forum-container">
+    <h1 class="forum-header">Форум</h1>
+    {% for topic in topics %}
+      <div class="forum-topic">
+        <h2><a href="{{ url_for('topic', topic_id=topic['id']) }}">{{ topic['title'] }}</a></h2>
+        <p>Опубліковано {{ topic['user_id'] }} on {{ topic['date_posted'] }}</p>
+      </div>
+    {% endfor %}
+    <a href="{{ url_for('create_topic') }}" class="create-topic-link">Створити нову тему</a>
+  </div>
+  {% endblock %}
